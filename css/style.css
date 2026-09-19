@@ -35,8 +35,12 @@ a {
 
 header {
     background-color: #ffffff;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid #e5edf2;
     padding: 10px 0;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    box-shadow: 0 2px 12px rgba(9, 32, 47, 0.06);
 }
 
 .header-content {
@@ -55,12 +59,17 @@ nav ul {
     display: flex;
     list-style: none;
     gap: 25px;
+    align-items: center;
 }
 
 nav a {
     color: #333;
     font-size: 15px;
-    padding-bottom: 5px;
+    display: inline-flex;
+    align-items: center;
+    min-height: 34px;
+    padding: 5px 0 3px;
+    border-bottom: 2px solid transparent;
     transition: 0.3s;
 }
 
@@ -71,6 +80,13 @@ nav a.ativo {
 
 nav a.ativo {
     border-bottom: 2px solid #0875bd;
+}
+
+nav a:focus-visible,
+.botao:focus-visible,
+.link:focus-visible {
+    outline: 3px solid #49b5f5;
+    outline-offset: 4px;
 }
 
 /* HERO */
@@ -162,6 +178,32 @@ nav a.ativo {
     text-align: center;
 }
 
+.apresentacao-grid {
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 55px;
+    align-items: center;
+}
+
+.apresentacao-grid .texto-centralizado {
+    max-width: 100%;
+}
+
+.apresentacao-foto {
+    margin: 0;
+    overflow: hidden;
+    border-radius: 12px;
+    background: #e9f1f6;
+    box-shadow: 0 12px 26px rgba(9, 32, 47, 0.12);
+}
+
+.apresentacao-foto img {
+    width: 100%;
+    height: 260px;
+    display: block;
+    object-fit: cover;
+}
+
 .texto-centralizado p {
     margin-bottom: 15px;
     color: #555;
@@ -190,7 +232,7 @@ nav a.ativo {
 .card {
     background-color: white;
     padding: 30px;
-    border-radius: 6px;
+    border-radius: 10px;
     border: 1px solid #dfe4e8;
     transition: 0.3s;
 }
@@ -264,20 +306,22 @@ nav a.ativo {
     align-items: center;
 }
 
-.imagem-placeholder {
-    height: 350px;
-    background-color: #e9f1f6;
-    border: 2px dashed #a7c5d8;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    color: #557386;
+.sobre-imagem figure {
+    margin: 0;
 }
 
-.imagem-placeholder span {
-    font-size: 70px;
-    margin-bottom: 10px;
+.foto-principal {
+    overflow: hidden;
+    border-radius: 12px;
+    background-color: #e9f1f6;
+    box-shadow: 0 14px 30px rgba(9, 32, 47, 0.14);
+}
+
+.foto-principal img {
+    width: 100%;
+    height: 350px;
+    display: block;
+    object-fit: cover;
 }
 
 .sobre-texto h2 {
@@ -331,7 +375,8 @@ nav a.ativo {
     background-color: white;
     padding: 25px;
     border: 1px solid #dfe4e8;
-    border-radius: 5px;
+    border-radius: 8px;
+    box-shadow: 0 4px 14px rgba(9, 32, 47, 0.04);
 }
 
 .dados-grid strong {
@@ -508,6 +553,7 @@ footer {
     }
 
     .cards,
+    .apresentacao-grid,
     .sobre-grid,
     .servicos-grid,
     .dados-grid,
@@ -518,6 +564,7 @@ footer {
     .sobre-grid {
         gap: 35px;
     }
+
 }
 
 @media (max-width: 500px) {
@@ -543,6 +590,10 @@ footer {
 
     .pagina-topo h1 {
         font-size: 34px;
+    }
+
+    .foto-principal img {
+        height: 270px;
     }
 
     .titulo-secao h2 {
